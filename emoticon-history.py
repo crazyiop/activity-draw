@@ -46,8 +46,8 @@ if __name__ == "__main__":
     repo = init()
     for day_offset, line in enumerate(art):
         for week_offset, char in enumerate(line):
-            for _ in range(31):
-                if char == " ":
-                    d = start_time + timedelta(days=day_offset + 7 * week_offset)
-                    print("marking", d)
+            if char == " ":
+                d = start_time + timedelta(days=day_offset + 7 * week_offset)
+                print("marking", d)
+                for _ in range(31):
                     commit_on_date(repo, d)
